@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Movie API</title>
+
+   <script src="./script.js" defer></script>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: "Poppins", sans-serif;
+      background-color: #141414;
+      color: white;
+      padding: 20px;
+    }
+
+    h1 {
+      font-size: 2rem;
+      color: #e50914;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    /* Search bar */
+    .search-bar {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 30px;
+    }
+
+    input {
+      padding: 12px 15px;
+      font-size: 16px;
+      border-radius: 25px;
+      border: none;
+      outline: none;
+      width: 300px;
+    }
+
+    button {
+      padding: 12px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+      background: #e50914;
+      color: white;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background: #b20710;
+      transform: scale(1.05);
+    }
+
+    /* Movies row */
+    #movies {
+      display: flex;
+      gap: 15px;
+      overflow-x: auto;
+      padding: 10px;
+      scroll-behavior: smooth;
+    }
+
+    #movies::-webkit-scrollbar {
+      height: 8px;
+    }
+
+    #movies::-webkit-scrollbar-thumb {
+      background: #e50914;
+      border-radius: 4px;
+    }
+
+    /* Movie card */
+    .movie-card {
+      min-width: 200px;
+      flex-shrink: 0;
+      transition: transform 0.3s ease;
+      cursor: pointer;
+    }
+
+    .movie-card img {
+      width: 200px;
+      height: 300px;
+      border-radius: 6px;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.7);
+    }
+
+    .movie-card:hover {
+      transform: scale(1.1);
+    }
+
+    .movie-card h3 {
+      margin: 10px 0 5px;
+      font-size: 16px;
+      color: #fff;
+      text-align: center;
+    }
+
+    .movie-card p {
+      margin: 0;
+      font-size: 14px;
+      color: #aaa;
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>🎬 Netflix Movie Search</h1>
+
+<div class="search-bar">
+    <input type="text" placeholder="Search for movies..." id="search" />
+    <button onclick="searchMovies()">Search</button>
+</div>
+
+  
+<div id="movies"></div>
+
+</body>
+</html>
